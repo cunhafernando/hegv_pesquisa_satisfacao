@@ -1,0 +1,57 @@
+<div class="container">
+  <%= form_with(model: pesquisa) do |form| %>
+    <div class="row g-6 justify-content-center margin-form">
+      <% if pesquisa.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(pesquisa.errors.count, "erro") %> proibiu esta pesquisa de ser salva:</h2>
+
+          <ul>
+            <% pesquisa.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="row col-8 justify-content-center mb-4">
+        <div class="col-4">
+          <%= form.label :ambulatorio_total, "Ambulatório total:" %>
+          <%= form.text_field :ambulatorio_total %>
+        </div>
+
+        <div class="col-6">
+          <%= form.label :ambul_sat, "Ambulatório satisfeitos:" %>
+          <%= form.text_field :ambul_sat %>
+        </div>
+      </div>
+
+      <div class="row col-8 justify-content-center mb-4">
+        <div class="col-4">
+          <%= form.label :emergencia_total, "Emergência total:" %>
+          <%= form.text_field :emergencia_total %>
+        </div>
+
+        <div class="col-6">
+          <%= form.label :emerg_sat, "Emergência satisfeitos:" %>
+          <%= form.text_field :emerg_sat %>
+        </div>
+      </div>
+
+      <div class="row col-8 justify-content-center mb-4">
+        <div class="col-4">
+          <%= form.label :internacao_total, "Internação total:" %>
+          <%= form.text_field :internacao_total %>
+        </div>
+
+        <div class="col-6">
+          <%= form.label :intern_sat, "Internação satisfeitos:" %>
+          <%= form.text_field :intern_sat %>
+        </div>
+      </div>
+
+      <div class="row col-8 d-grid gap-2 justify-content-md-end">
+        <%= form.submit "Salvar", class: "btn btn-success" %>
+      </div>
+    </div>
+  <% end %>
+</div?

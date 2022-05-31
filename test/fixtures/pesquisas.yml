@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ambulatorio_total: 1
+  ambul_sat: 1.5
+  emergencia_total: 1
+  emerg_sat: 1.5
+  internacao_total: 1
+  intern_sat: 1.5
+
+two:
+  ambulatorio_total: 1
+  ambul_sat: 1.5
+  emergencia_total: 1
+  emerg_sat: 1.5
+  internacao_total: 1
+  intern_sat: 1.5

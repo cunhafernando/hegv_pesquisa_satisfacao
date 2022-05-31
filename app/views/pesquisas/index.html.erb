@@ -1,0 +1,41 @@
+<div class="container">
+  <p id="notice"><%= notice %></p>
+
+  <div class="row justify-content-center mt-4 mb-4">
+    <h1 class="row justify-content-center text-blue">Pesquisas de Satisfação</h1>
+  </div>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Ambulatório total</th>
+        <th scope="col">Ambulatório satisfeitos</th>
+        <th scope="col">Emergência total</th>
+        <th scope="col">Emergência satisfeitos</th>
+        <th scope="col">Internação total</th>
+        <th scope="col">Internação satisfeitos</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @pesquisas.each do |pesquisa| %>
+        <tr>
+          <td><%= pesquisa.ambulatorio_total %></td>
+          <td><%= pesquisa.ambul_sat %></td>
+          <td><%= pesquisa.emergencia_total %></td>
+          <td><%= pesquisa.emerg_sat %></td>
+          <td><%= pesquisa.internacao_total %></td>
+          <td><%= pesquisa.intern_sat %></td>
+          <td><%= link_to 'Mostrar', pesquisa, class: "btn btn-success" %></td>
+          <td><%= link_to 'Editar', edit_pesquisa_path(pesquisa), class: "btn btn-warning" %></td>
+          <td><%= link_to 'Apagar', pesquisa, method: :delete, data: { confirm: 'Você tem certeza?' }, class: "btn btn-danger" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'Nova Pesquisa', new_pesquisa_path, class: "btn btn-success" %>
+  </div>

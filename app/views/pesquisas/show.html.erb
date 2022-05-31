@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Ambulatório total:</strong>
+  <%= @pesquisa.ambulatorio_total %>
+</p>
+
+<p>
+  <strong>Ambulatório satisfeitos:</strong>
+  <%= @pesquisa.ambul_sat %>
+</p>
+
+<p>
+  <strong>Emergência total:</strong>
+  <%= @pesquisa.emergencia_total %>
+</p>
+
+<p>
+  <strong>Emergência satisfeitos:</strong>
+  <%= @pesquisa.emerg_sat %>
+</p>
+
+<p>
+  <strong>Internação total:</strong>
+  <%= @pesquisa.internacao_total %>
+</p>
+
+<p>
+  <strong>Internação satisfeitos:</strong>
+  <%= @pesquisa.intern_sat %>
+</p>
+
+<%= link_to 'Editar', edit_pesquisa_path(@pesquisa), class: "btn btn-primary" %> 
+<%= link_to 'Voltar', pesquisas_path, class: "btn btn-primary" %>

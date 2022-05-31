@@ -10,9 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2022_05_30_125916) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "pesquisas", force: :cascade do |t|
+    t.integer "ambulatorio_total"
+    t.float "ambul_sat"
+    t.integer "emergencia_total"
+    t.float "emerg_sat"
+    t.integer "internacao_total"
+    t.float "intern_sat"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
 end
