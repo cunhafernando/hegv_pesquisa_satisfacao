@@ -8,6 +8,12 @@ class PesquisasController < ApplicationController
 
   # GET /pesquisas/1 or /pesquisas/1.json
   def show
+    @calc_ambulatorio = (@pesquisa.ambulatorio_total * @pesquisa.ambul_sat / 100).to_i
+    @calc_emergencia = (@pesquisa.emergencia_total * @pesquisa.emerg_sat / 100).to_i
+    @calc_internacao = (@pesquisa.internacao_total * @pesquisa.intern_sat / 100).to_i
+    @calc_satifeitos = @calc_ambulatorio + @calc_emergencia + @calc_internacao
+    @calc_total = @pesquisa.ambulatorio_total + @pesquisa.emergencia_total + @pesquisa.internacao_total
+    @calc_percent_total = (@calc_satifeitos * 100)/@calc_total
   end
 
   # GET /pesquisas/new
@@ -25,7 +31,7 @@ class PesquisasController < ApplicationController
 
     respond_to do |format|
       if @pesquisa.save
-        format.html { redirect_to pesquisa_url(@pesquisa), notice: "Pesquisa was successfully created." }
+        format.html { redirect_to pesquisa_url(@pesquisa), notice: "Pesquisa criada com sucesso." }
         format.json { render :show, status: :created, location: @pesquisa }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +44,7 @@ class PesquisasController < ApplicationController
   def update
     respond_to do |format|
       if @pesquisa.update(pesquisa_params)
-        format.html { redirect_to pesquisa_url(@pesquisa), notice: "Pesquisa was successfully updated." }
+        format.html { redirect_to pesquisa_url(@pesquisa), notice: "Pesquisa atualizada com sucesso." }
         format.json { render :show, status: :ok, location: @pesquisa }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +58,7 @@ class PesquisasController < ApplicationController
     @pesquisa.destroy
 
     respond_to do |format|
-      format.html { redirect_to pesquisas_url, notice: "Pesquisa was successfully destroyed." }
+      format.html { redirect_to pesquisas_url, notice: "Pesquisa apagada com sucesso." }
       format.json { head :no_content }
     end
   end
@@ -65,6 +71,6 @@ class PesquisasController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def pesquisa_params
-      params.require(:pesquisa).permit(:ambulatorio_total, :ambul_sat, :emergencia_total, :emerg_sat, :internacao_total, :intern_sat)
+      params.require(:pesquisa).permit(:mes, :ambulatorio_total, :ambul_sat, :emergencia_total, :emerg_sat, :internacao_total, :intern_sat)
     end
 end

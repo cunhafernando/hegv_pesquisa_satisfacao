@@ -1,13 +1,26 @@
 <div class="container">
   <p id="notice"><%= notice %></p>
 
-  <div class="row justify-content-center mt-4 mb-4">
-    <h1 class="row justify-content-center text-blue">Pesquisas de Satisfação</h1>
+  <div class="row align-items-center mb-5">
+    <div class="col-3">
+    <%= image_tag "logos/logo_azul_hegv.png", :class => "w-75 p-3 d-block mx-auto mb-4" %>
+    
+    </div>
+    <div class="col-6">
+      <h1>Pesquisas de Satisfação</h1>
+    </div>
+    <div class="col-3">
+    <%= image_tag "logos/pe_secretaria.png", :class => "w-75 p-3 d-block mx-auto mb-4" %>
+    </div>
+    
+    <h2></h2>
+    <p class="lead">Dados extraídos do site Ouvidoria da Secretaria de Saúde</p>
   </div>
-
+  
   <table class="table table-striped">
     <thead>
       <tr>
+        <th scope="col">Mês vigente</th>
         <th scope="col">Ambulatório total</th>
         <th scope="col">Ambulatório satisfeitos</th>
         <th scope="col">Emergência total</th>
@@ -21,6 +34,7 @@
     <tbody>
       <% @pesquisas.each do |pesquisa| %>
         <tr>
+          <td><%= pesquisa.mes %></td>
           <td><%= pesquisa.ambulatorio_total %></td>
           <td><%= pesquisa.ambul_sat %></td>
           <td><%= pesquisa.emergencia_total %></td>

@@ -1,6 +1,6 @@
 <div class="container">
   <%= form_with(model: pesquisa) do |form| %>
-    <div class="row g-6 justify-content-center margin-form">
+    <div class="row g-6 justify-content-center">
       <% if pesquisa.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(pesquisa.errors.count, "erro") %> proibiu esta pesquisa de ser salva:</h2>
@@ -14,38 +14,48 @@
       <% end %>
 
       <div class="row col-8 justify-content-center mb-4">
-        <div class="col-4">
-          <%= form.label :ambulatorio_total, "Ambulatório total:" %>
+        <div class="strong col-4 justify-content-center me-5">
+          <h4><strong><%= form.label :mes, "Mês vigente:" %></strong></h4>
+          <%= form.text_field :mes %>
+        </div>
+      </div>
+
+      <div class="row col-8 justify-content-center mb-4">
+        <h4 class="text-center">Ambulatório</h4>
+        <div class="col-4 justify-content-center ms-5">
+          <%= form.label :ambulatorio_total, "Total:" %>
           <%= form.text_field :ambulatorio_total %>
         </div>
 
-        <div class="col-6">
-          <%= form.label :ambul_sat, "Ambulatório satisfeitos:" %>
-          <%= form.text_field :ambul_sat %>
+        <div class="col-4 justify-content-center ms-5">
+          <%= form.label :ambul_sat, "Satisfeitos:" %>
+          <%= form.text_field :ambul_sat %>%
         </div>
       </div>
 
       <div class="row col-8 justify-content-center mb-4">
-        <div class="col-4">
-          <%= form.label :emergencia_total, "Emergência total:" %>
+        <h4 class="text-center">Emergência</h4>
+        <div class="col-4 justify-content-center ms-5">
+          <%= form.label :emergencia_total, "Total:" %>
           <%= form.text_field :emergencia_total %>
         </div>
 
-        <div class="col-6">
-          <%= form.label :emerg_sat, "Emergência satisfeitos:" %>
-          <%= form.text_field :emerg_sat %>
+        <div class="col-4 justify-content-center ms-5">
+          <%= form.label :emerg_sat, "Satisfeitos:" %>
+          <%= form.text_field :emerg_sat %>%
         </div>
       </div>
 
       <div class="row col-8 justify-content-center mb-4">
-        <div class="col-4">
-          <%= form.label :internacao_total, "Internação total:" %>
+        <h4 class="text-center">Internação</h4>
+        <div class="col-4 justify-content-center ms-5">
+          <%= form.label :internacao_total, "Total:" %>
           <%= form.text_field :internacao_total %>
         </div>
 
-        <div class="col-6">
-          <%= form.label :intern_sat, "Internação satisfeitos:" %>
-          <%= form.text_field :intern_sat %>
+        <div class="col-4 justify-content-center ms-5">
+          <%= form.label :intern_sat, "Satisfeitos:" %>
+          <%= form.text_field :intern_sat %>%
         </div>
       </div>
 

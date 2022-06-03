@@ -1,6 +1,20 @@
-<h1>Editing Pesquisa</h1>
+<div class="container">
 
-<%= render 'form', pesquisa: @pesquisa %>
+<div class="row align-items-center mb-3">
+    <div class="col-3">
+        <%= image_tag "logos/logo_azul_hegv.png", :class => "w-50 p-3 d-block mx-auto mb-4" %>
+    </div>
+    <div class="col-6">
+    <h1>Editar mês de <%= @pesquisa.mes %></h1>
+    </div>
+    <div class="col-3">
+        <%= image_tag "logos/pe_secretaria.png", :class => "w-50 p-3 d-block mx-auto mb-4" %>
+    </div>
+</div>
 
-<%= link_to 'Show', @pesquisa %> |
-<%= link_to 'Back', pesquisas_path %>
+    <%= render 'form', pesquisa: @pesquisa %>
+    <div class= "row col-8 justify-content-start">
+        <%= link_to 'Mostrar', @pesquisa, class: "btn btn-primary" %>
+        <%= link_to 'Voltar', pesquisas_path, class: "btn btn-primary" %>
+    </div>
+</div>

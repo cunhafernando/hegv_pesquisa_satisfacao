@@ -6,7 +6,8 @@ class CreatePesquisas < ActiveRecord::Migration[6.1]
       t.integer :emergencia_total
       t.float :emerg_sat
       t.integer :internacao_total
-      t.float :intern_sat
+      t.float :intern_sat      
+
 
       t.timestamps
     end

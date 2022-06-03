@@ -1,34 +1,82 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
 
-<p>
-  <strong>Ambulatório total:</strong>
-  <%= @pesquisa.ambulatorio_total %>
-</p>
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Ambulatório satisfeitos:</strong>
-  <%= @pesquisa.ambul_sat %>
-</p>
 
-<p>
-  <strong>Emergência total:</strong>
-  <%= @pesquisa.emergencia_total %>
-</p>
+    <div class="row align-items-center mb-5">
+      <div class="col-3">
+      <%= image_tag "logos/logo_azul_hegv.png", :class => "w-75 p-3 d-block mx-auto mb-4" %>
+      
+      </div>
+      <div class="col-6">
+        <h2>Pesquisa do mês de <%= @pesquisa.mes %></h2>
+      </div>
+      <div class="col-3">
+      <%= image_tag "logos/pe_secretaria.png", :class => "w-75 p-3 d-block mx-auto mb-4" %>
+      </div>
+      
+      <h2></h2>
+      <p class="lead">Dados extraídos do site Ouvidoria da Secretaria de Saúde</p>
+        
+    </div>
+    
+    <table class="table table-bordered table-striped">
+    <h5><strong>Data de criação:</strong> <%= @pesquisa.created_at.strftime("%d/%m/%Y") %></h5>
+    <h5 class="mb-5"><strong>Data de atualização:</strong> <%= @pesquisa.updated_at.strftime("%d/%m/%Y") %></h5>
+      <thead class="table-primary">
+        <tr>
+          <th colspan="3">Ambulatório</th>
+          <th colspan="3">Emergência</th>
+          <th colspan="3">Internação</th>
+        </tr>
+      </thead>
+      <thead>
+        <tr>
+          <th scope="col">Pesquisados</th>
+          <th scope="col">Total</th>
+          <th scope="col">Satisfeitos</th>
+          <th scope="col">Pesquisados</th>
+          <th scope="col">Total</th>
+          <th scope="col">Satisfeitos</th>
+          <th scope="col">Pesquisados</th>
+          <th scope="col">Total</th>
+          <th scope="col">Satisfeitos</th>
+        </tr>
+      </thead>
+      
+      <tbody>
+          <tr>
+            <td><%= @pesquisa.ambulatorio_total %></td>
+            <td><%= @calc_ambulatorio %></td>
+            <td><%= @pesquisa.ambul_sat %>%</td>
+            <td><%= @pesquisa.emergencia_total %></td>
+            <td><%= @calc_emergencia %></td>
+            <td><%= @pesquisa.emerg_sat %>%</td>
+            <td><%= @pesquisa.internacao_total %></td>
+            <td><%= @calc_internacao %></td>
+            <td><%= @pesquisa.intern_sat %>%</td>
+          </tr>
+      </tbody>
+    </table>
 
-<p>
-  <strong>Emergência satisfeitos:</strong>
-  <%= @pesquisa.emerg_sat %>
-</p>
-
-<p>
-  <strong>Internação total:</strong>
-  <%= @pesquisa.internacao_total %>
-</p>
-
-<p>
-  <strong>Internação satisfeitos:</strong>
-  <%= @pesquisa.intern_sat %>
-</p>
-
-<%= link_to 'Editar', edit_pesquisa_path(@pesquisa), class: "btn btn-primary" %> 
-<%= link_to 'Voltar', pesquisas_path, class: "btn btn-primary" %>
+    <table class="table table-bordered table-striped">
+    
+      <thead class="table-primary">
+        <tr>
+          <th scope="col">Total de Respostas</th>
+          <th scope="col">Respostas Positivas</th>
+          <th scope="col">Percentual</th>
+        </tr>
+      </thead>
+      
+      <tbody>
+          <tr>
+            <td><%= @calc_total %></td>
+            <td><%= @calc_satifeitos %></td>
+            <td><%= @calc_percent_total %>%</td>
+          </tr>
+      </tbody>
+    </table>
+   
+    
+</div>
